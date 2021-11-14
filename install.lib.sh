@@ -15,3 +15,8 @@ yarn add class-validator class-transformer
 
 echo "6. Installing @nestjs/axios"
 yarn add @nestjs/axios
+
+echo "7. Installing typeorm-seeding"
+yarn add typeorm-seeding
+
+
