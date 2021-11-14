@@ -1,7 +1,8 @@
-import { Column, Entity, OneToMany } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany, OneToMany } from 'typeorm';
 
 import { GlobalEntity } from 'src/global-entities/global-entities/global-entity';
 import { User } from '../users/user.entity';
+import { Permission } from '../permissions/permission.entity';
 
 @Entity()
 export class Role extends GlobalEntity {
@@ -10,4 +11,8 @@ export class Role extends GlobalEntity {
 
   @OneToMany(() => User, (user) => user.role)
   users: User[];
+
+  @ManyToMany(() => Permission, { eager: true })
+  @JoinTable()
+  permissions: Permission[];
 }
